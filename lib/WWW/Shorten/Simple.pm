@@ -97,6 +97,11 @@ present, and then finally to TinyURL.
           and last;
   }
 
+This wrapper works with most WWW::Shorten implementation that
+implements the default C<makeashorterlink> and C<makealongerlink>
+functions. The options should be able to be passed as an optional
+parameters to C<makeashorterlink> function.
+
 =head1 METHODS
 
 =over 4
