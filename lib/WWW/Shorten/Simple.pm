@@ -66,7 +66,7 @@ WWW::Shorten::Simple - Factory wrapper around WWW::Shorten to avoid imports
 
   my $svc = WWW::Shorten::Simple->new('TinyURL');
   my $short_url = $svc->shorten($long_url);
-  my $cnaon_url = $svc->unshorten($short_url);
+  my $canon_url = $svc->unshorten($short_url);
 
 =head1 DESCRIPTION
 
