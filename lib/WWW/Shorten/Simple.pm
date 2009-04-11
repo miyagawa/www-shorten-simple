@@ -89,7 +89,7 @@ present, and then finally to TinyURL.
   );
 
   my $short_url;
-  for my $shortener (@shortenes) {
+  for my $shortener (@shorteners) {
       $short_url = eval { $shortener->shorten($long_url) } # eval to ignore errors
           and last;
   }
