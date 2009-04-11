@@ -83,13 +83,14 @@ present, and then finally to TinyURL.
   use WWW::Shorten::Simple;
 
   my @shorteners = (
-      WWW::Shorten::Simple->new('RevCanonical'), # Try this first
-      WWW::Shorten::Simple->new('TinyURL'),      # Then fallback to TinyURL
+      WWW::Shorten::Simple->new('RevCanonical'),
+      WWW::Shorten::Simple->new('Bitly', $bitly_username, $bitly_api_key),
+      WWW::Shorten::Simple->new('TinyURL'),
   );
 
   my $short_url;
   for my $shortener (@shortenes) {
-      $short_url = $shortener->shorten($long_url)
+      $short_url = eval { $shortener->shorten($long_url) } # eval to ignore errors
           and last;
   }
 
