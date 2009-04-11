@@ -80,6 +80,19 @@ package, for instance to call L<WWW::Shorten::RevCanonical> to extract
 rev="canonical", fallback to bit.ly if username and API key are
 present, and then finally to TinyURL.
 
+  use WWW::Shorten::Simple;
+
+  my @shorteners = (
+      WWW::Shorten::Simple->new('RevCanonical'), # Try this first
+      WWW::Shorten::Simple->new('TinyURL'),      # Then fallback to TinyURL
+  );
+
+  my $short_url;
+  for my $shortener (@shortenes) {
+      $short_url = $shortener->shorten($long_url)
+          and last;
+  }
+
 =head1 METHODS
 
 =over 4
