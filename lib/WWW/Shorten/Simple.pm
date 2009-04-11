@@ -8,6 +8,17 @@ use Carp;
 
 sub new {
     my($class, $impl, @args) = @_;
+
+    unless ($impl) {
+        Carp::croak "WWW::Shorten subclass name is required";
+    }
+
+    my $subclass =  "WWW::Shorten::$impl";
+    $subclass =~ s!::!/!g;
+    $subclass .= ".pm";
+    eval { require $subclass };
+    Carp::croak "Can't load $impl: $@" if $@;
+
     bless { impl => "WWW::Shorten::$impl", args => \@args }, $class;
 }
 
@@ -35,14 +46,6 @@ sub call_method {
     my($self, $method, @args) = @_;
 
     no strict 'refs';
-    unless (defined &{$self->{impl}. "::$method"}) {
-        my $class = $self->{impl};
-        $class =~ s!::!/!g;
-        $class .= ".pm";
-        eval { require $class };
-        Carp::croak "Can't load $self->{impl}: $@" if $@;
-    }
-
     &{$self->{impl}."::$method"}(@args);
 }
 
