@@ -111,7 +111,7 @@ parameters to C<makeashorterlink> function.
   $svc = WWW::Shorten::Simple->new('TinyURL');
   $svc = WWW::Shorten::Simple->new('Bitly', $bitly_username, $bitly_api_key);
 
-Creates a new WWW::Shoten::Simple object. Takes a subclass name and
+Creates a new WWW::Shorten::Simple object. Takes a subclass name and
 optional parameters to C<makeashorterlink> call.
 
 =item shorten
