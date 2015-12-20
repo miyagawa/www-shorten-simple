@@ -24,11 +24,6 @@
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : "7.1"
-         }
-      },
       "configure" : {
          "requires" : {
             "Module::Build::Tiny" : "0.034"
@@ -42,8 +37,11 @@
       },
       "runtime" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "7.1",
-            "Filter::Util::Call" : "0",
+            "WWW::Shorten" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
             "Test::More" : "0"
          }
       }

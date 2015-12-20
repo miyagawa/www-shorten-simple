@@ -1,7 +1,6 @@
-requires 'ExtUtils::MakeMaker', '7.1';
-requires 'Filter::Util::Call';
-requires 'Test::More';
+requires 'WWW::Shorten';
 
-on build => sub {
-    requires 'ExtUtils::MakeMaker';
+on test => sub {
+    requires 'Test::More';
 };
+
